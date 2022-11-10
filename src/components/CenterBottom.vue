@@ -2,10 +2,11 @@
   <div class="bottom-box">
     <div class="bottom-box-item" v-for="item in data" :key="item.id">
       <div class="box-title">{{ item.title }}</div>
-      <div>
+      <div style="display: flex;align-items: flex-end">
         <span class="box-num" :id="`total-${item.id}`">{{ item.totalNum }}</span>
         <span class="box-unit">{{ item.unit }}</span>
-        <span :style="{color: item.isUp ? 'green' : 'red',marginLeft: '10px'}" :id="`percentage-${item.id}`">{{ item.percentage }}%</span>
+        <span class="box-icon" :class="item.isUp?'box-icon-up':'box-icon-down'" />
+        <span :style="{color: item.isUp ? 'green' : 'red',marginLeft: '5px'}" :id="`percentage-${item.id}`">{{ item.percentage }}%</span>
       </div>
     </div>
   </div>
@@ -50,7 +51,7 @@ watch(
   box-sizing: border-box;
   margin-top: 50px;
   .bottom-box-item {
-    width: 30%;
+    width: 32%;
     .box-title {
       color: #fff;
       line-height: 40px;
@@ -59,6 +60,20 @@ watch(
       font-size: 36px;
       font-weight: bold;
       color: #23aeff;
+    }
+    .box-icon{
+      display: inline-block;
+      box-sizing: border-box;
+      border: 8px solid transparent;
+      margin-left: 10px;
+    }
+    .box-icon-up{
+      border-bottom-color: green;
+      margin-bottom: 4px;
+    }
+    .box-icon-down{
+      border-top-color: red;
+      margin-bottom: -4px;
     }
     .box-unit {
       font-size: 20px;
