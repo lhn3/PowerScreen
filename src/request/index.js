@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {ElLoading} from 'element-plus/lib'
+import {ElLoading} from "element-plus";
 import {BASE_URL, TIME_OUT} from './config'
 
 //创建封装axios类

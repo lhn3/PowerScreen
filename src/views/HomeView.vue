@@ -1,5 +1,5 @@
 <template>
-  <div class="back-ground">
+  <div class="back-ground" id="screen-body">
     <div class="header"></div>
 
 <!--左边-->
@@ -32,6 +32,7 @@
 </template>
 
 <script setup>
+import autoFit from 'autofit.js'
 import EchartsTemplate from '../components/EchartsTemplate.vue'
 import myAxios from '../request/index'
 import {onMounted, ref} from "vue";
@@ -56,6 +57,12 @@ let chargingTop4 = ref({}) //数据分析数据
 
 onMounted(()=>{
   pieRequest()
+  // autoFit.init({
+  //   dh: 1080,
+  //   dw: 1920,
+  //   el: '#screen-body',
+  //   resize: true
+  // }) // 可关闭控制台运行提示输出
 })
 
 // 获取数据
